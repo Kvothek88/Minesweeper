@@ -311,7 +311,6 @@ def main():
                                 current_board[mine[0]][mine[1]] = "m"
                             current_board[row][col] = "M"
                         elif board[row][col] == "-" and current_board[row][col] != "flag": #if square is empty and not flagged
-                            opened_squares.append((row,col))
                             if current_board[row][col] == "-":
                                 mine_num = search_mines(row,col,directions)
                                 if mine_num > 0:

@@ -20,8 +20,8 @@ elif game_type==2:
     dimension = 30
 
 mines_list = [[12,17,30],
-            [38,56,96],
-            [133,189,333]]
+            [35,48,88],
+            [103,159,266]]
 
 game_mines_num = mines_list[game_type][difficulty]
 mines_count = game_mines_num
