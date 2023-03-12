@@ -337,6 +337,7 @@ def main():
                     elif click_type[0] and click2: #left mouse button on faces
                         secs_count = 0
                         mins_count = 0
+                        mins = "%s" % str(mins_count) if mins_count >= 10 else "0%s" % str(mins_count)
                         opened_squares.clear()
                         gameover = False
                         win = False
