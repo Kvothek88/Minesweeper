@@ -406,4 +406,5 @@ def main():
         win=win_condition(opened_squares,empty_squares)
         pygame.display.update()
 
-main()
+ if __name__=="__main__":
+    main()
