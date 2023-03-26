@@ -240,6 +240,7 @@ def main():
     global dimension
     global sq_size
     global mines_count
+    global empty_squares
     while run:
         if play:
             clock.tick(60)
@@ -261,6 +262,7 @@ def main():
 
             if play:
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    print(empty_squares,len(opened_squares))
                     click = False
                     click2 = False
                     directions = ((-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1))
@@ -315,7 +317,7 @@ def main():
                         opened_squares.clear()
                         gameover = False
                         win = False
-                        board,current_board,game_mines,sq_size,dimension,mines_count,game_mines_num = reset_game(difficulty,game_type,mines_list)
+                        board,current_board,game_mines,sq_size,dimension,mines_count,game_mines_num,empty_squares = reset_game(difficulty,game_type,mines_list)
                         click2 = False
                     elif click_type[2] and click and not gameover and not win: #right mouse button
                         click = False
@@ -331,7 +333,7 @@ def main():
                         play=False
                         mainmenu=True
                         opened_squares.clear()
-                        board,current_board,game_mines,sq_size,dimension,mines_count,game_mines_num = reset_game(difficulty,game_type,mines_list)
+                        board,current_board,game_mines,sq_size,dimension,mines_count,game_mines_num,empty_squares = reset_game(difficulty,game_type,mines_list)
                         gameover = False
                         win = False                     
             else:
@@ -370,9 +372,9 @@ def main():
                         if screen.get_width()//2-images["ok"].get_width()//2 < location[0] < screen.get_width()//2+images["ok"].get_width()//2 \
                             and (screen.get_height()//2)+(5*images["ok"].get_height()) < location[1] < (screen.get_height()//2)+(6*images["ok"].get_height()):
                             mainmenu=True
-                            options=False  
+                            options=False
 
-                        board,current_board,game_mines,sq_size,dimension,mines_count,game_mines_num = reset_game(difficulty,game_type,mines_list)
+                        board,current_board,game_mines,sq_size,dimension,mines_count,game_mines_num,empty_squares = reset_game(difficulty,game_type,mines_list)
                         load_images()       
 
                                 
@@ -381,5 +383,5 @@ def main():
         win=win_condition(opened_squares,empty_squares)
         pygame.display.update()
 
- if __name__=="__main__":
+if __name__=="__main__":
     main()
