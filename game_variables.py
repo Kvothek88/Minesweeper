@@ -31,6 +31,7 @@ def reset_game(difficulty,game_type,mines_list):
     elif game_type==2:
         dimension = 30
     game_mines_num = mines_list[game_type][difficulty]
+    empty_squares = (dimension**2)-game_mines_num
     mines_count = game_mines_num
     board = np.empty((dimension,dimension),dtype='object')
     current_board = np.empty((dimension,dimension),dtype='object')
@@ -47,9 +48,7 @@ def reset_game(difficulty,game_type,mines_list):
             game_mines.append((row,col))
     sq_size = width // dimension
 
-    return board,current_board,game_mines, sq_size,dimension,mines_count,game_mines_num
+    return board,current_board,game_mines, sq_size,dimension,mines_count,game_mines_num,empty_squares
 
 
-board,current_board,game_mines,sq_size,dimension,mines_count,game_mines_num = reset_game(difficulty,game_type,mines_list)
-
-empty_squares = (dimension**2)-game_mines_num
+board,current_board,game_mines,sq_size,dimension,mines_count,game_mines_num,empty_squares = reset_game(difficulty,game_type,mines_list)
