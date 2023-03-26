@@ -262,7 +262,6 @@ def main():
 
             if play:
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    print(empty_squares,len(opened_squares))
                     click = False
                     click2 = False
                     directions = ((-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1))
